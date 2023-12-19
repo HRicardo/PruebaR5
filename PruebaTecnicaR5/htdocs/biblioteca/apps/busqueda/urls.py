@@ -6,5 +6,6 @@ urlpatterns = [
     path('registrarLibro/', views.create),
     path('editarLibro/<id>', views.edit),
     path('actualizarLibro/', views.update),
-    path("eliminarLibro/<id>", views.delete)
+    path("eliminarLibro/<id>", views.delete),
+    path("search/", views.search)
 ]
