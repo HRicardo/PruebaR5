@@ -7,5 +7,9 @@ urlpatterns = [
     path('editarLibro/<id>', views.edit),
     path('actualizarLibro/', views.update),
     path("eliminarLibro/<id>", views.delete),
-    path("search/", views.search)
+    path("search/", views.search),
+    path("createAuthor/", views.createAutor),
+    path("createCategory/", views.createCategory),
+    path("registerAuthor/", views.registrarAutor),
+    path("registerCategory/", views.registrarCategoria)
 ]

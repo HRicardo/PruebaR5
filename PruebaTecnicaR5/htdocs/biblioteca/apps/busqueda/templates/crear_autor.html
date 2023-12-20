@@ -1,0 +1,28 @@
+{% extends "./template.html" %}
+
+{% block tittle%} Biblioteca {% endblock %}
+
+{% block body %}
+
+<div class="card-body">
+    <form action="/registerAuthor/" method="POST" style="padding: 10px;"> {% csrf_token %} 
+        <div class="form-group" style="margin-top: 10px;">
+            <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required>                    
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <input type="text" id="libroId" name="libroId" class="form-control" placeholder="ID" hidden>                    
+        </div>        
+        <div class="form-group" style="margin-top: 10px; float: right;">
+            <button type="submit" class="btn btn-success btn-block">Guardar</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.addEventListener("ready", () => {
+        var urlParams = new URLSearchParams(window.location.search);
+        var fieldId = document.getElementById("libroId");
+        fieldId.value = urlParams.get("author")
+    })
+</script>
+
+{% endblock %}

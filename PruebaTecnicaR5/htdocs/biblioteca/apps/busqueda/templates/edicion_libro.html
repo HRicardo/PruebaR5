@@ -17,6 +17,32 @@
             <div class="form-group" style="margin-top: 10px;">
                 <input type="text" id="subtitle" name="subtitle" class="form-control" value="{{libro.Subtitulo}}" placeholder="Subtitulo">                    
             </div>
+            <div class="form-inline" style="margin-top: 10px;">
+                <div class="input-group mb-3">
+                    <select class="form-select" name="author" id="author" multiple aria-label="multiple select example">
+                        <option selected>Seleccione una o mas opciones</option>
+                        {% for c in autores %}                            
+                        <option value="{{c.ID}}">{{c.Nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><a href="" onclick="window.open('/createAuthor/','ventana1','width=350,height=350,scrollbars=NO')" target="_blank"><i class="fa fa-plus"></i></a></span>
+                    </div>
+                </div>                    
+            </div>
+            <div class="form-inline" style="margin-top: 10px;">
+                <div class="input-group mb-3">
+                    <select class="form-select" name="category" id="category" multiple aria-label="multiple select example">
+                        <option selected>Seleccione una o mas opciones</option>
+                        {% for c in categorias %}                                     
+                            <option value="{{c.ID}}">{{c.Nombre}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><a href="" onclick="window.open('/createCategory/','ventana1','width=350,height=350,scrollbars=NO')"><i class="fa fa-plus"></i></a></span>
+                    </div>
+                </div>                    
+            </div>
             <div class="form-goup" style="margin-top: 10px;">
                 <input type="date" id="date" name="date" class="form-control" value="{{libro.FechaPublicacion}}" placeholder="Fecha de Publicacion" required>                    
             </div>
