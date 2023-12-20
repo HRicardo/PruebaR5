@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import libro
 from django.db.models import Q
 import requests
-import logging
 
 # Create your views here.
 
@@ -54,8 +53,7 @@ def update(request):
 def search(request):
     id = request.POST["search"]
     books = libro.objects.all()
-    logger = logging.getLogger("mylogger")
-    logger.info("Whatever to log")
+    #form=DashboardForm(request.POST)
 
     googleList = consultaGoogle(id)
 
@@ -68,17 +66,21 @@ def search(request):
             Q(Descripcion__icontains = id)
         ).distinct()
 
-        return render(request, "gestion_biblioteca.html", {"libros": booksFound})
+        if booksFound:
+            return render(request, "gestion_biblioteca.html", {"libros": booksFound})
+        else:
+            return render(request, "gestion_biblioteca.html", {"libros": googleList})
     else:
-        return render(request, "gestion_biblioteca.html", {"libros": googleList})
+        return render(request, "gestion_biblioteca.html", {"libros": books})
     
-async def consultaGoogle(id):
+def consultaGoogle(id):
     url="https://www.googleapis.com/books/v1/volumes?q="+id
     print(url)
     r = requests.get(url)
-    answer = await r.json()
+    answer = r.json()    
     result_list = []
-    for i in range(10):
+
+    for i in range(5):
         result_dict = {
             'Titulo':answer['items'][i]['volumeInfo']['title'],
             'Subtitulo':answer['items'][i]['volumeInfo'].get('subtitle'),
@@ -88,4 +90,5 @@ async def consultaGoogle(id):
             'FechaPublicacion':answer['items'][i]['volumeInfo'].get('publishedDate')         
         }
         result_list.append(result_dict)
+
     return result_list
