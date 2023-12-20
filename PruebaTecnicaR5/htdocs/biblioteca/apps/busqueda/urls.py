@@ -11,5 +11,8 @@ urlpatterns = [
     path("createAuthor/", views.createAutor),
     path("createCategory/", views.createCategory),
     path("registerAuthor/", views.registrarAutor),
-    path("registerCategory/", views.registrarCategoria)
+    path("registerCategory/", views.registrarCategoria),
+    path("getBookspost/", views.getBooks),
+    path("createBookspost/", views.createBooks),
+    path("deleteBookspost/<id>", views.deleteBooks)
 ]

@@ -122,24 +122,7 @@
         var subtitulo = curr.parentElement.parentElement.querySelector("#subtitlefld").innerHTML
         var date = curr.parentElement.parentElement.querySelector("#datefld").innerHTML
         var editor = curr.parentElement.parentElement.querySelector("#editorfld").innerHTML
-        var desc = curr.parentElement.parentElement.querySelector("#descfld").innerHTML
-        var fd = new FormData();    
-        fd.append('title', titulo);
-        fd.append('subtitle', subtitulo);
-        fd.append('date', date);
-        fd.append('editor', editor);
-        fd.append('desc', desc);
-        fd.append('author', []);
-        fd.append('category', []);
-        var data = {
-            "title": titulo,
-            'subtitle': subtitulo,
-            'date': date,
-            'editor': editor,
-            'desc': desc,
-            'author':  [],
-            'category': []
-        }
+        var desc = curr.parentElement.parentElement.querySelector("#descfld").innerHTML  
         var data = "title=".concat(titulo, "&subtitle=", subtitulo, "&date=", date, "&editor=", editor, "&desc=", desc, "&author=", [], "&category=", [])
         var xhttp = new XMLHttpRequest();        
         xhttp.onreadystatechange = function() {
