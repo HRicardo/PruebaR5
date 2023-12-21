@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid" style="margin-left: 80%;">
         <form class="d-flex" role="search" action="/search/" method="POST"> {% csrf_token %}
           <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
