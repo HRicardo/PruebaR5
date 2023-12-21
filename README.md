@@ -9,3 +9,10 @@ el content type para los servicios es application/x-www-form-urlencoded y se deb
 csrftoken=RlubHWr8qo42gtf5uOeTgebqFoegGu40mcFTVUlYkQaimFBBGVIUfoFjocrwN5OW; Path=/; Expires=Thu, 19 Dec 2024 23:17:55 GMT;
 
 para que django acepte la consulta
+
+se utilizaron los siguientes plataformas:
+
+lenguaje: python 3
+framework: django 3.1.3
+base de datos: mysql
+carpeta raiz: htdocs (dentro de la carpeta del env)
